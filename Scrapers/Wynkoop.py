@@ -69,4 +69,7 @@ for b in beer_ibu[0:]:
 
 Wynkoop_df = pd.DataFrame({'Brewery':'Wynkoop','Beer':all_beer_list,'Style':beer_style_list,
 'ABV':beer_abv_list,'IBU':beer_ibu_list})
-print(Wynkoop_df)
+#print(Wynkoop_df)
+
+path_out = '/Users/steve/Documents/Coding/Beer_Data/Beer_Data/CSV_Files'
+Wynkoop_df.to_csv('Wynkoop Data',index=False,header=True)
