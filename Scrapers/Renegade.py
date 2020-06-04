@@ -1,5 +1,5 @@
 #COMPLETE
-
+import pyppdf.patch_pyppeteer
 import requests
 from bs4 import BeautifulSoup
 

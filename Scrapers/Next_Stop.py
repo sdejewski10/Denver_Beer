@@ -1,4 +1,5 @@
 #INCOMPLETE - left out IBU list because only 8 entries and didnt feel like matching up
+import pyppdf.patch_pyppeteer
 from bs4 import BeautifulSoup
 import requests
 from requests_html import HTMLSession

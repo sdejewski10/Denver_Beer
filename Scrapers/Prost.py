@@ -1,5 +1,5 @@
 #INCOMPLETE - need to push ABV & IBU Values from trubucha down one and insert 0's for trubucha
-
+import pyppdf.patch_pyppeteer
 import requests
 from bs4 import BeautifulSoup
 

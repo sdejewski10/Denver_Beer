@@ -1,4 +1,5 @@
 #COMPLETE
+import pyppdf.patch_pyppeteer
 from bs4 import BeautifulSoup
 import requests
 from requests_html import HTMLSession

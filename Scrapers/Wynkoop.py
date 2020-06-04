@@ -1,4 +1,7 @@
 #COMPLETE
+
+#new computer requires this patch because it sends requests to quickly
+import pyppdf.patch_pyppeteer
 from bs4 import BeautifulSoup
 import requests
 from requests_html import HTMLSession
