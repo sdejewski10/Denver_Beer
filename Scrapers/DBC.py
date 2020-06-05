@@ -41,7 +41,9 @@ beer_name_list = beer_name_list[:-3]
 #Creates data frame 
 DBC_df = pd.DataFrame({'Brewery':'Denver Beer Co','Beer':beer_name_list,'Style':
 ['Porter','IPA','Hazy IPA','IPA','Lager','Kolsch','Sour','Sour','Lager','Pale Ale','Blonde Ale','IPA','Seltzer','Seltzer','Seltzer','Seltzer']})
-print(DBC_df)
+#print(DBC_df)
+
+DBC_df.to_csv('Denver_Beer_Co.csv',index=False,header=True)
 
 
 

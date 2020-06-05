@@ -1,6 +1,6 @@
-#GOING TO BE USED TO CONCATENATE ALL THE SEPERATE SCRAPERS INTO ONE LARGE DATA FRAME
+#GOING TO BE USED TO CONCATENATE ALL THE SEPERATE 
+# SCRAPERS INTO ONE LARGE DATA FRAME
 import pandas as pd
-import glob
 import os
 
 ### CODE TO RETRIEVE ALL OF THE FILES STORED IN THAT FOLDER ####
@@ -12,13 +12,16 @@ for r, d, f in os.walk(path):
             files.append(os.path.join(r, file))
 
 
-####prints out each file name individually###
-#for f in files:
-    #print(f)
+### Creating a list of readable DF's and adding to li
+li=[]
+for f in files:
+    df=pd.read_csv(f,index_col=None,header=0)
+    li.append(df)
+
 
 ### PRINTS LIST OF THE FILES IN THE FOLDER ABOVE ###
 #print(files)
 
-#Denver_Beer = pd.concat(files)
+Denver_Beer = pd.concat(li,axis=0,ignore_index=True)
 
-#print(Denver_Beer)
+print(Denver_Beer)
