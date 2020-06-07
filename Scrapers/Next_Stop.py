@@ -69,4 +69,6 @@ for b in beer_ibu[0:]:
 
 NS_df = pd.DataFrame({'Brewery':'Next Stop','Beer':beer_name_list,'Style':beer_style_list,
 'ABV':beer_abv_list,})
-print(NS_df)
+#print(NS_df)
+
+NS_df.to_csv('Next_Stop.csv',index=False,header=True)

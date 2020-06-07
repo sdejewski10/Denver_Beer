@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import urllib.request
 import pandas as pd
 
+
 url = urllib.request.urlopen('https://denverbeerco.com/on-tap-today/').read()
 
 #MAKING THE SOUP
@@ -35,12 +36,12 @@ for div in beer_names[0:]:
 #removes the three non-alc drinks from the list
 beer_name_list = beer_name_list[:-3]
 
-#print(beer_name_list)
+#print(len(beer_name_list))
 
 
 #Creates data frame 
 DBC_df = pd.DataFrame({'Brewery':'Denver Beer Co','Beer':beer_name_list,'Style':
-['Porter','IPA','Hazy IPA','IPA','Lager','Kolsch','Sour','Sour','Lager','Pale Ale','Blonde Ale','IPA','Seltzer','Seltzer','Seltzer','Seltzer']})
+['Porter','IPA','Hazy IPA','IPA','Lager','Kolsch','Sour','Sour','Lager','Pale Ale','Blonde Ale','IPA','Sour','Seltzer','Seltzer','Seltzer','Seltzer']})
 #print(DBC_df)
 
 DBC_df.to_csv('Denver_Beer_Co.csv',index=False,header=True)

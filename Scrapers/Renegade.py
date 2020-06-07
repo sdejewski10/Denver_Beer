@@ -68,3 +68,5 @@ for b in beer_ibu[0:-9]:
 Renegade_df = pd.DataFrame({'Brewery':'Renegade Brewing','Beer':beer_names_list,'Style':beer_style_list,
 'ABV':beer_abv_list,'IBU':beer_ibu_list})
 print(Renegade_df)
+
+Renegade_df.to_csv('Renegade.csv',index=False,header=True)

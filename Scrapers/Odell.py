@@ -47,3 +47,5 @@ for b in beer_abv[0:]:
 
 Odell_df = pd.DataFrame({'Brewery':'Odell Brewing Co','Beer':beer_name_list,'Style':beer_style_list,'ABV':beer_abv_list})
 print(Odell_df)
+
+Odell_df.to_csv('Odell.csv', index=False,header=True)
