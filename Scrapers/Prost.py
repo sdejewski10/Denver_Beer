@@ -1,4 +1,4 @@
-#INCOMPLETE - need to push ABV & IBU Values from trubucha down one and insert 0's for trubucha
+#COMPLETE
 import pyppdf.patch_pyppeteer
 import requests
 from bs4 import BeautifulSoup
@@ -47,7 +47,7 @@ for b in beer_info[0:]:
     bi_result = (b.text)[5:8]
     beer_abv_list.append(bi_result)
 
-beer_abv_list.insert(30,0)
+beer_abv_list.insert(11,0)
 
 #print(beer_abv_list)
 
@@ -56,17 +56,13 @@ for b in beer_info[0:]:
     results = (b.text)[9:]
     beer_ibu_list.append(results)
 
-beer_ibu_list.insert(30,0)
+beer_ibu_list.insert(11,0)
 
 #print(beer_ibu_list)
 
 
 Prost_df = pd.DataFrame({'Brewery':'Prost Brewing Co','Beer':beer_names_list ,'Style':beer_style_list,
 'ABV':beer_abv_list,'IBU':beer_ibu_list})
-print(Prost_df)
+#print(Prost_df)
 
-#bi results returns a list of seperate abv and ibu's
-#not formatted well, would like to get just integer from the strings of each
-
-#pb_df = pd.DataFrame({'Brewery':'Prost Brewing','Beer':beer_names_list, 'Style':beer_style_list})
-#print(pb_df)
+Prost_df.to_csv('Prost.csv', index= False, header= True)
