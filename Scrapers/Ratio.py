@@ -1,3 +1,5 @@
+#Complete - couldnt get IBU figured out though
+
 import pyppdf.patch_pyppeteer
 from bs4 import BeautifulSoup
 import requests
@@ -55,4 +57,7 @@ for b in ibu:
 
 
 beer_ibu_list = [i.split('\n')[2] for i in beer_ibu_list]
-print(beer_ibu_list)
+
+ratio_df = pd.DataFrame({'Brewery':'Ratio Beer Works','Beer':beer_name_list,'Style':beer_style_list,'ABV':beer_abv_list})
+
+ratio_df.to_csv('Ratio.csv',index=False,header=True)
