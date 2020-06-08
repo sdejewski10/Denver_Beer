@@ -25,3 +25,5 @@ for f in files:
 Denver_Beer = pd.concat(li,axis=0,ignore_index=True)
 
 print(Denver_Beer)
+
+#Denver_Beer.to_excel('Denver_Beer.xlsx', index= False)
