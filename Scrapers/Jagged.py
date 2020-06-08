@@ -89,16 +89,19 @@ beer_abv_list = beer(beer_abv_list)
 
 #print(beer_abv_list)
 
-###seperating the abv and ibu based on the |###
+### WILL RETURN LIST seperating the abv and ibu based on the |###
 beer_abv_list = [i.split('|') for i in beer_abv_list]
 #print(beer_abv_list)
 
+
+### CREATING LIST THAT RETURNS ONLY ABV PORTION OF THE LIST####
 def beer_abv(beer_abv_list):
     return [item[0] for item in beer_abv_list]
 
 beer_abv2_list = beer_abv(beer_abv_list)
 #print(beer_abv2_list)
 
+###MANUALLY ENTERING ABV FOR THOSE THAT HAD TEXT IN THE LIST####
 beer_abv2_list.insert(6, '5.5%')
 beer_abv2_list.pop(7)
 beer_abv2_list.insert(8,'6.5%')
