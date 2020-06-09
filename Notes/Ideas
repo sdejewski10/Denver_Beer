@@ -2,3 +2,6 @@ Scrape beers/information from local breweries and compile on website for reposit
 Have filters for types of beer, locations, etc
 
 Use compiled information to do predictive analytics for the breweries
+
+Potential to import entire dataframe into SQL database to be able to manipulate easier
+    Idea to remove % or abv or ibu text from those columns, etc
