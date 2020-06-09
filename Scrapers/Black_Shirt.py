@@ -50,15 +50,21 @@ beer_style_list =[i.split('|',2)[1] for i in edit_list]
 
 print(beer_style_list)
 
+### REMOVING ERRANT VALUES ###
 beer_abv_list = [i.split('|',2)[2] for i in edit_list]
-
+beer_abv_list.insert(3,'7.2% ABV')
+beer_abv_list.pop(4)
+beer_abv_list.insert(7, '4.7% ABV')
+beer_abv_list.pop(8)
+beer_abv_list.insert(11,'14.9% ABV')
+beer_abv_list.pop(12)
 #print(beer_abv_list)
 
 Black_Shirt_df = pd.DataFrame({'Brewery':'Black Shirt Brewing Co','Beer':all_beer_list,'Style':beer_style_list,
 'ABV':beer_abv_list})
-#print(Black_Shirt_df)
+print(Black_Shirt_df)
 
-Black_Shirt_df.to_csv('Black_Shirt_Data',index=False,header=True)
+Black_Shirt_df.to_csv('Black_Shirt_Data.csv',index=False,header=True)
 
 
 #extracting the lists within the lists created above into their seperate lists
