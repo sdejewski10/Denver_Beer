@@ -1,13 +1,12 @@
-#INCOMPLETE
+### FILE SETUP ###
 import pyppdf.patch_pyppeteer
 from bs4 import BeautifulSoup
 import requests
 from requests_html import HTMLSession
-
-
 from urllib.request import Request, urlopen
 import pandas as pd
 
+### Opening Webpage ###
 session = HTMLSession()
 resp = session.get('https://www.jaggedmountainbrewery.com/beer')
 
