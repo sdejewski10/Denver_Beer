@@ -62,9 +62,9 @@ for b in beer_style[0:]:
     results = (b.text)
     beer_style_list.append(results)
 
-#print(beer_style_list)
+print(beer_style_list)
 
-beer_styles = [i.split('/') for i in beer_style_list]
-print(beer_styles)
+#beer_styles = [i.split('/') for i in beer_style_list]
+#print(beer_styles)
 
 
