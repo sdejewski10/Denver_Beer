@@ -1,7 +1,11 @@
 #GOING TO BE USED TO CONCATENATE ALL THE SEPERATE 
 # SCRAPERS INTO ONE LARGE DATA FRAME
 import pandas as pd
+import numpy as np 
+import sqlalchemy
+import sqlite3
 import os
+import psycopg2
 
 ### CODE TO RETRIEVE ALL OF THE FILES STORED IN THAT FOLDER ####
 path = '/Users/steve/Documents/Coding/Beer_Data/Beer Data'  #PUT ALL THE INDIVIDUAL SCRAPER CSV INTO THIS FILE
@@ -24,6 +28,26 @@ for f in files:
 
 Denver_Beer = pd.concat(li,axis=0,ignore_index=True)
 
-print(Denver_Beer)
+#print(Denver_Beer)
 
-Denver_Beer.to_csv('Denver_Beer.csv', index= False)
+#Denver_Beer.to_csv('Denver_Beer.csv', index= False)
+
+### CREATING SQL DATABASE CONNECTION ####
+
+###Importing library that allows POSTGRESQL####
+from sqlalchemy import create_engine
+
+###Engine = 'type of sql://username:password@host_name/database_name####
+engine = create_engine('postgresql://steve:steve@localhost/beer_db')
+
+
+### WRITING PANDAS DATAFRAME TO SQL####
+
+## CONNECTING TO POSTGRESQL & DATABASE ##
+con = engine.connect()
+
+##DATAFRAME.TO_SQL('TABLE NAME OR VARIABLE CONTAINING TABLENAME', CONNECTION)
+table_name = 'all_beer_info'
+Denver_Beer.to_sql(table_name,con)
+#print(engine.table_names())
+con.close()
