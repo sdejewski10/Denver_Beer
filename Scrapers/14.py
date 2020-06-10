@@ -74,6 +74,7 @@ for b in beer_ibu[0:]:
 fourteen_df = pd.DataFrame({'Brewery':'14er Brewing','Beer':beer_names,'Style':beer_style_list,'ABV':beer_abv_list})
 #print(fourteen_df)
 
+### PRINTS DATA TO CSV FILE ###
 fourteen_df.to_csv('14er.csv', index = False, header= True)
 
 
