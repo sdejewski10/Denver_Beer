@@ -30,7 +30,7 @@ Denver_Beer = pd.concat(li,axis=0,ignore_index=True)
 
 #print(Denver_Beer)
 
-#Denver_Beer.to_csv('Denver_Beer.csv', index= False)
+Denver_Beer.to_csv('Denver_Beer.csv', index= False)
 
 ### CREATING SQL DATABASE CONNECTION ####
 
@@ -48,6 +48,6 @@ con = engine.connect()
 
 ##DATAFRAME.TO_SQL('TABLE NAME OR VARIABLE CONTAINING TABLENAME', CONNECTION)
 table_name = 'beer_info'
-Denver_Beer.to_sql(table_name,con)
+Denver_Beer.to_sql(table_name,con, if_exists = 'replace')
 #print(engine.table_names())
 con.close()
