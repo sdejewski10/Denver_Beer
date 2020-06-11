@@ -1,4 +1,4 @@
-##INCOMPLETE - BEER NAMES NOT IN SAME ELEMT ON WEBSITE
+#COMPLETE
 
 import pyppdf.patch_pyppeteer
 from bs4 import BeautifulSoup
@@ -50,6 +50,56 @@ add_names_list = [i.split(',') for i in edit_list]
 def added_beer(add_names_list):
     return [item[0] for item in add_names_list]
 
-print(added_beer(add_names_list))
+beer_list = (added_beer(add_names_list))
 
 
+##REMOVING RANDOM ELEMENT####
+beer_list.remove('\u200b')
+
+### BEER NAMES ARE EVERY SECOND ELEMENT####
+beer_list = beer_list[0::2]
+beer_list.pop(9) #REMOVING OASIS BREWERY FROM BEER LIST
+#print(beer_list)
+
+styles = []
+for s in soup.select('.font_2 > span'):
+    results = (s.text)
+    styles.append(results)
+
+styles.remove('\u200b')
+
+beer_abv_list = styles[1::2]
+#print(beer_style_list)
+
+beer_abv_edit = beer_abv_list.copy()
+
+beer_edit_list = beer_abv_list.copy()
+
+#SPLITS ON BLANK SPACES & RETURNS SEPERATE ELEMENTS LIKE: %, ABV, #, IBU
+beer_abv_list = [i.split() for i in beer_abv_edit]
+beer_edit_list = [i.split() for i in beer_abv_edit]
+#print(beer_style_list)
+
+#JOINGING THE FIRST TWO VALUES OF EACH LIST SO IT RETURNS: % ABV
+def merges(lst):
+    for b in lst:
+        b[0:2] = [' '.join(b[0:2])]
+
+#RUNNING LIST ABOVE THROUGH FUNCTION CREATED TO MERGE VALUES
+merges(beer_abv_list)
+#print(len(beer_abv_list))
+
+
+### GETTING IBU ###
+def ibu_merge(lst):
+    for x in lst:
+        x[1:2] = [''.join(x[1:2])]
+
+def ibus(lst):
+    return [item[3] for item in beer_edit_list]
+
+ibu_list = ibus(beer_edit_list)
+#print(len(ibu_list))
+
+oasis_df = pd.DataFrame({'Brewery':'Oasis Brewing','Beer':beer_list,'Style':'N/A','ABV':beer_abv_list,'IBU':ibu_list})
+oasis_df.to_csv('Oasis.csv', index = False, header = True)
