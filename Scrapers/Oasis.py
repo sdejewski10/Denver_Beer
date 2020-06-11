@@ -107,5 +107,5 @@ def ibus(lst):
 ibu_list = ibus(beer_edit_list)
 #print(len(ibu_list))
 
-oasis_df = pd.DataFrame({'Brewery':'Oasis Brewing','Beer':beer_list,'Style':'N/A','ABV':beer_abv_list,'IBU':ibu_list})
+oasis_df = pd.DataFrame({'Brewery':'Oasis Brewing','Beer':beer_list,'ABV':beer_abv_list,'IBU':ibu_list})
 oasis_df.to_csv('Oasis.csv', index = False, header = True)
