@@ -87,7 +87,13 @@ def merges(lst):
 
 #RUNNING LIST ABOVE THROUGH FUNCTION CREATED TO MERGE VALUES
 merges(beer_abv_list)
-#print(len(beer_abv_list))
+
+### ABOVE STILL RETURNS LIST OF LIST, SELECTING ONLY ABV
+def abv(beer_abv_list):
+    return [item[0] for item in beer_abv_list]
+
+beer_abv_list = abv(beer_abv_list)
+#print(beer_abv_list)
 
 
 ### GETTING IBU ###
