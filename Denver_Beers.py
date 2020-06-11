@@ -47,7 +47,7 @@ engine = create_engine('postgresql://steve:steve@localhost/beer_db')
 con = engine.connect()
 
 ##DATAFRAME.TO_SQL('TABLE NAME OR VARIABLE CONTAINING TABLENAME', CONNECTION)
-table_name = 'all_beer_info'
+table_name = 'beer_info'
 Denver_Beer.to_sql(table_name,con)
 #print(engine.table_names())
 con.close()
