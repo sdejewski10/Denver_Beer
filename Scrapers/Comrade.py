@@ -61,7 +61,7 @@ def scraping():
 
     df = pd.DataFrame({'Brewery': 'Comrade Brewing', 'Beer': names_list,
                        'Style': style_list, 'ABV': abv_list, 'IBU': ibu_list})
-    df.to_csv(path_to_save+'Comrade.csv')
+    df.to_csv(path_to_save+'Comrade.csv', index=False, header=True)
 
 
 scraping()

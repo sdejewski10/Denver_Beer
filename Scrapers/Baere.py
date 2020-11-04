@@ -25,7 +25,10 @@ for b in beers:
     results = (b.text)
     beer_list.append(results)
 
+print(beer_list)
+
 edit_list = [i.split('\n') for i in beer_list]
+print(edit_list)
 def cleanse(edit_list):
     return [item[1] for item in edit_list]
 
